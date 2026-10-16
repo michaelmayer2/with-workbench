@@ -25,12 +25,14 @@ DEFAULT_PORT = 8787
 DEFAULT_USER = "testuser"
 API_TOKEN_TYPES = ("user", "admin", "super-admin")
 
-# Appended to /etc/rstudio/rserver.conf for --api-token. Without these, Workbench rejects
-# Bearer tokens (e.g. "workbench-api-admin-enabled=1 missing in rserver.conf").
+# Appended to /etc/rstudio/rserver.conf for --api-token. Without the workbench-api flags,
+# Workbench rejects Bearer tokens (e.g. "workbench-api-admin-enabled=1 missing in
+# rserver.conf"); without audited-jobs, launch_audited_job fails ("Audited jobs is not enabled").
 WORKBENCH_API_CONF = """
 workbench-api-enabled=1
 workbench-api-admin-enabled=1
 workbench-api-super-admin-enabled=1
+audited-jobs=1
 """
 
 # Historical sessions/jobs (get_historical_session) fail with "Audit DB must be
