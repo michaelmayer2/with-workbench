@@ -126,7 +126,8 @@ curl -f -X POST -H "Authorization: Bearer $WORKBENCH_API_KEY" \
 This:
 
 - Sets `workbench-api-enabled`, `workbench-api-admin-enabled` and
-  `workbench-api-super-admin-enabled` in `rserver.conf` (Bearer tokens are rejected otherwise)
+  `workbench-api-super-admin-enabled` in `rserver.conf` (Bearer tokens are rejected otherwise),
+  plus `audited-jobs` so audited jobs can be launched through the API
 - Configures a SQLite audit database, which historical sessions/jobs
   (`get_historical_session`) require
 - Registers `--user` in Workbench's user database (as an admin for `admin`/`super-admin`

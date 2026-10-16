@@ -814,6 +814,7 @@ def test_enable_workbench_api_appends_config():
     assert rserver_conf.startswith("www-port=8787\n")
     assert "workbench-api-enabled=1" in rserver_conf
     assert "workbench-api-admin-enabled=1" in rserver_conf
+    assert "audited-jobs=1" in rserver_conf
     assert files["audit-database.conf"] == ("provider=sqlite\n", 0o600)
 
 
